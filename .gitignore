@@ -1,0 +1,5 @@
+.vault_password
+
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+.vagrant

@@ -1,0 +1,12 @@
+---
+- include_vars: "secrets.yml"
+
+- name: install git
+  apt: name=git state=latest
+
+- name: update Jenkins config.xml
+  template:
+    src: jenkins/config.xml.j2
+    dest: /var/lib/jenkins/config.xml
+  notify:
+    - restart jenkins
