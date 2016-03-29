@@ -3,3 +3,6 @@
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 .vagrant
+/keyrings/live/pubring.gpg~
+/keyrings/live/pubring.kbx~
+/keyrings/live/secring.gpg
