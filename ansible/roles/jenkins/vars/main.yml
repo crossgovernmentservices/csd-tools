@@ -1,0 +1,25 @@
+---
+jenkins_hostname: localhost
+jenkins_http_port: 8080
+jenkins_plugins:
+  - workflow-aggregator
+  - git
+  - ssh
+  - google-login
+  - role-strategy
+  - internetmeme
+
+nginx_remove_default_vhost: true
+nginx_upstreams:
+  - name: jenkins
+    servers: {
+      "localhost:8080"
+    }
+nginx_vhosts:
+  - listen: "80 default_server"
+    server_name: "localhost"
+    extra_parameters: |
+      location / {
+        include proxy_params;
+        proxy_pass http://jenkins;
+      }

@@ -1,0 +1,9 @@
+---
+- hosts: tag_Name_csd_tools_jenkins
+  become: yes
+  become_method: sudo
+
+  roles:
+    - binarytemple.jenkins
+    - geerlingguy.nginx
+    - jenkins
