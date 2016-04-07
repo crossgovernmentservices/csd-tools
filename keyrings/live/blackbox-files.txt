@@ -1,2 +1,3 @@
 .vault_password
+ansible/roles/jenkins/files/gpg.tar
 terraform/terraform.tfvars
