@@ -1,6 +1,41 @@
 ---
 - include_vars: "secrets.yml"
 
+- name: download BlackBox
+  unarchive:
+    src: https://github.com/StackExchange/blackbox/archive/stable.tar.gz
+    dest: /var/lib/jenkins/
+    creates: /var/lib/jenkins/blackbox-stable/bin/blackbox_cat
+    copy: no
+
+- name: install BlackBox
+  shell: cp /var/lib/jenkins/blackbox-stable/bin/* /usr/local/bin/ creates=/usr/local/bin/blackbox_cat
+
+- name: decrypt Jenkins GPG keys locally
+  become: false
+  local_action: command blackbox_edit_start ansible/roles/jenkins/files/gpg.tar creates=ansible/roles/jenkins/files/gpg.tar
+
+- name: create Jenkins .gnupg dir
+  file:
+    path: /var/lib/jenkins/.gnupg
+    state: directory
+    mode: 0700
+    owner: jenkins
+    group: jenkins
+
+- name: copy Jenkins GPG keys
+  unarchive:
+    src: gpg.tar
+    dest: /var/lib/jenkins/.gnupg
+    owner: jenkins
+    group: jenkins
+    mode: 0700
+    creates: /var/lib/jenkins/.gnupg/pubring.gpg
+
+- name: remove local decrypted Jenkins GPG keys
+  become: false
+  local_action: command blackbox_edit_end ansible/roles/jenkins/files/gpg.tar removes=ansible/roles/jenkins/files/gpg.tar
+
 - name: install git
   apt: name=git state=latest
 
