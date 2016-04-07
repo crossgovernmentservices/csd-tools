@@ -9,3 +9,4 @@ terraform/terraform.tfstate.backup
 /.vault_password
 /terraform/terraform.tfvars
 /ansible/roles/jenkins/files/gpg.tar
+ansible/site.retry
