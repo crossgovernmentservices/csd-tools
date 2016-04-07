@@ -8,3 +8,4 @@ terraform/terraform.tfstate.backup
 /keyrings/live/secring.gpg
 /.vault_password
 /terraform/terraform.tfvars
+/ansible/roles/jenkins/files/gpg.tar
