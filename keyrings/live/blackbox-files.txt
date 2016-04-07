@@ -1,3 +1,2 @@
 .vault_password
-ansible/roles/jenkins/files/gpg/pubkey.txt
 terraform/terraform.tfvars
