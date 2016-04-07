@@ -3,7 +3,10 @@ jenkins_hostname: localhost
 jenkins_http_port: 8080
 jenkins_plugins:
   - workflow-aggregator
+  - workflow-multibranch
+  - pipeline-stage-view
   - git
+  - multiple-scms
   - ssh
   - google-login
   - role-strategy
