@@ -6,4 +6,5 @@
   roles:
     - binarytemple.jenkins
     - geerlingguy.nginx
+    - kbrebanov.terraform
     - jenkins
