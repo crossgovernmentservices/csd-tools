@@ -36,6 +36,23 @@
   become: false
   local_action: command blackbox_edit_end ansible/roles/jenkins/files/gpg.tar removes=ansible/roles/jenkins/files/gpg.tar
 
+- name: Ensure Jenkins .ssh dir exists
+  file:
+    path: /var/lib/jenkins/.ssh
+    state: directory
+    mode: 0700
+    owner: jenkins
+    group: jenkins
+
+- name: Copy SSH private keys
+  copy:
+    content: "{{item.value}}"
+    dest: "/var/lib/jenkins/.ssh/{{item.key}}"
+    mode: 0600
+    owner: jenkins
+    group: jenkins
+  with_dict: "{{ssh_private_keys}}"
+
 - name: install git
   apt: name=git state=latest
 
