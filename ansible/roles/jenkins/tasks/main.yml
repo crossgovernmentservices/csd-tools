@@ -62,3 +62,10 @@
     dest: /var/lib/jenkins/config.xml
   notify:
     - restart jenkins
+
+- name: update Jenkins credentials.xml
+  template:
+    src: jenkins/credentials.xml.j2
+    dest: /var/lib/jenkins/credentials.xml
+  notify:
+    - restart jenkins
