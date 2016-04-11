@@ -10,6 +10,7 @@ jenkins_plugins:
   - ssh
   - google-login
   - role-strategy
+  - ansicolor
   - internetmeme
 
 nginx_remove_default_vhost: true
