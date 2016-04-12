@@ -11,6 +11,8 @@ jenkins_plugins:
   - google-login
   - role-strategy
   - ansicolor
+  - scm-sync-configuration
+  - ws-cleanup
   - internetmeme
 
 nginx_remove_default_vhost: true
