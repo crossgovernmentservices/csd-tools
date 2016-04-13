@@ -18,6 +18,12 @@
     copy: no
     mode: 0755
 
+- name: Add Ansible apt repo
+  apt_repository: repo='ppa:ansible/ansible'
+
+- name: Install Ansible
+  apt: name=ansible state=latest
+
 - name: decrypt Jenkins GPG keys locally
   become: false
   local_action: command blackbox_postdeploy creates=ansible/roles/jenkins/files/gpg.tar
