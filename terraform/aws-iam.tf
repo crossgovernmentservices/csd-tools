@@ -89,6 +89,24 @@ resource "aws_iam_policy" "terraform_policy" {
       "Resource": [
         "*"
       ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:*"
+      ],
+      "Resource": [
+        "*"
+      ]
     }
   ]
 }
