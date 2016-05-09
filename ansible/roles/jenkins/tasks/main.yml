@@ -30,6 +30,9 @@
 - name: Install credstash
   pip: name=credstash state=latest
 
+- name: Install boto
+  pip: name=boto state=latest
+
 - name: decrypt Jenkins GPG keys locally
   become: false
   local_action: command blackbox_postdeploy creates=ansible/roles/jenkins/files/gpg.tar
